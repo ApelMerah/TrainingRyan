@@ -1,10 +1,31 @@
 ﻿@page
-@model IndexModel
+@model Calvin.Pages.IndexModel
 @{
-    ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<form method="post">
+    <div>
+        <input asp-for="Form.Username" />
+        <span asp-validation-for="Form.Username"></span>
+    </div>
+    <div>
+        <input type="password" asp-for="Form.Password" />
+        @Html.ValidationMessageFor(Q => Q.Form.Password)
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+<p>
+    @Model.Form?.Username
+</p>
+<p>
+    @Model.Form?.Password
+</p>
+
+<p>
+    @Model.SuccessMessage
+</p>
+
+<calvin company="accelist"></calvin>
